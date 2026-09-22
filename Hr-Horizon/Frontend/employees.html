@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Employees · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="employees">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="toolbar">
+          <div class="search-box">
+            <input id="emp-search" type="text" placeholder="Search name, CNIC, email..." />
+          </div>
+          <select id="filter-department"><option value="">All Departments</option></select>
+          <select id="filter-status">
+            <option value="">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Inactive">Inactive</option>
+          </select>
+          <select id="filter-gender">
+            <option value="">All Genders</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <div class="spacer"></div>
+          <a href="add-employee.html" class="btn btn-accent">+ Add New Employee</a>
+        </div>
+
+        <div class="card">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Department & Designation</th>
+                  <th>Salary</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="emp-table-body"></tbody>
+            </table>
+          </div>
+          <div id="emp-empty" class="empty-state" style="display:none">
+            <div>No employees match your search.</div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Profile modal -->
+  <div class="modal-overlay" id="profile-modal">
+    <div class="modal" style="max-width:640px">
+      <div class="modal-header">
+        <h3 id="profile-name">Employee Profile</h3>
+        <button class="modal-close" onclick="closeProfile()">&times;</button>
+      </div>
+      <div class="modal-body" id="profile-body"></div>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/employees.js"></script>
+</body>
+</html>

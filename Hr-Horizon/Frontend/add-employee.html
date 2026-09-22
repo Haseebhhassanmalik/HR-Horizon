@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Add Employee · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="add-employee">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content" style="max-width:900px">
+
+        <div class="card">
+          <form id="emp-form">
+
+            <div class="form-section">
+              <h4>Personal Information</h4>
+              <div class="form-grid">
+                <div class="field"><label>Full Name <span class="req">*</span></label><input name="name" required /></div>
+                <div class="field"><label>Father Name <span class="req">*</span></label><input name="fatherName" required /></div>
+                <div class="field"><label>CNIC <span class="req">*</span></label><input name="cnic" placeholder="XXXXX-XXXXXXX-X" required pattern="\d{5}-\d{7}-\d{1}" />
+                  <div class="field-hint">Format: 12345-1234567-1</div></div>
+                <div class="field"><label>Date of Birth</label><input type="date" name="dob" /></div>
+                <div class="field"><label>Gender</label>
+                  <select name="gender"><option>Male</option><option>Female</option><option>Other</option></select>
+                </div>
+                <div class="field"><label>Marital Status</label>
+                  <select name="maritalStatus"><option>Single</option><option>Married</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>Contact Information</h4>
+              <div class="form-grid">
+                <div class="field"><label>Email Address <span class="req">*</span></label><input type="email" name="email" required /></div>
+                <div class="field"><label>Phone Number <span class="req">*</span></label><input name="phone" required /></div>
+                <div class="field"><label>Current Address</label><input name="address" /></div>
+                <div class="field"><label>Emergency Contact</label><input name="emergencyContact" /></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>Employment Details</h4>
+              <div class="form-grid">
+                <div class="field"><label>Department</label>
+                  <select name="department"><option>IT</option><option>HR</option><option>Finance</option><option>Marketing</option><option>Sales</option></select>
+                </div>
+                <div class="field"><label>Designation</label><input name="designation" /></div>
+                <div class="field"><label>Joining Date</label><input type="date" name="joiningDate" /></div>
+                <div class="field"><label>Employment Type</label>
+                  <select name="employmentType"><option>Full-time</option><option>Part-time</option><option>Contract</option></select>
+                </div>
+                <div class="field"><label>Status</label>
+                  <select name="status"><option>Active</option><option>Inactive</option></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>Compensation</h4>
+              <div class="form-grid">
+                <div class="field"><label>Basic Salary (Rs.)</label><input type="number" min="0" name="basicSalary" value="0" /></div>
+                <div class="field"><label>House Rent Allowance (Rs.)</label><input type="number" min="0" name="houseRent" value="0" /></div>
+                <div class="field"><label>Medical Allowance (Rs.)</label><input type="number" min="0" name="medical" value="0" /></div>
+                <div class="field"><label>Transport Allowance (Rs.)</label><input type="number" min="0" name="transport" value="0" /></div>
+                <div class="field"><label>Bank Account Details</label><input name="bankAccount" placeholder="Bank - Account No." /></div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h4>Documents</h4>
+              <div class="upload-box">
+                Drag & drop or click to upload CNIC copy, educational certificates, experience letters, and a passport-size photo.
+                <div style="margin-top:8px; font-size:11px;">(Document storage isn't wired up in this demo build — this box is a visual placeholder.)</div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <a href="employees.html" class="btn btn-outline">Cancel</a>
+              <button type="submit" class="btn btn-accent" id="submit-btn">Save Employee</button>
+            </div>
+          </form>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/add-employee.js"></script>
+</body>
+</html>

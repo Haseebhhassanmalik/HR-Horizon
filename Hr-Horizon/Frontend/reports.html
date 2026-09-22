@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Reports & Analytics · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="reports">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="toolbar">
+          <select id="report-type">
+            <option value="turnover">Employee Turnover Report</option>
+            <option value="attendance">Attendance Report</option>
+            <option value="leave">Leave Report</option>
+            <option value="payroll">Payroll Report</option>
+          </select>
+          <div class="spacer"></div>
+          <button class="btn btn-outline" id="export-pdf">Export as PDF</button>
+          <button class="btn btn-outline" id="export-csv">Export as CSV</button>
+        </div>
+
+        <div class="kpi-grid" id="report-kpis"></div>
+
+        <div class="charts-grid">
+          <div class="card">
+            <div class="card-header"><h3 id="chart1-title">Chart</h3></div>
+            <canvas id="report-chart-1" height="230"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3 id="chart2-title">Chart</h3></div>
+            <canvas id="report-chart-2" height="230"></canvas>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3 id="table-title">Details</h3></div>
+          <div class="table-wrap"><table id="report-table"><thead id="report-thead"></thead><tbody id="report-tbody"></tbody></table></div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/reports.js"></script>
+</body>
+</html>

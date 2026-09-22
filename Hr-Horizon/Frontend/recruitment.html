@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Recruitment · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="recruitment">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="jobs">Job Postings</button>
+          <button class="tab-btn" data-tab="applicants">Applicant Tracking</button>
+          <button class="tab-btn" data-tab="interviews">Interview Scheduling</button>
+        </div>
+
+        <div class="tab-panel active" data-panel="jobs">
+          <div class="toolbar">
+            <div class="spacer"></div>
+            <button class="btn btn-accent" id="new-job-btn">+ Create Job Posting</button>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Title</th><th>Department</th><th>Posted On</th><th>Status</th><th></th></tr></thead>
+                <tbody id="jobs-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="applicants">
+          <div class="toolbar">
+            <select id="job-filter"><option value="">All Postings</option></select>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Applicant</th><th>Applied For</th><th>Contact</th><th>Applied On</th><th>Status</th></tr></thead>
+                <tbody id="applicants-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="interviews">
+          <div class="card">
+            <div class="card-header"><h3>Upcoming Interviews</h3></div>
+            <div id="interviews-body"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="job-modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Create Job Posting</h3><button class="modal-close" onclick="closeJobModal()">&times;</button></div>
+      <div class="modal-body">
+        <form id="job-form">
+          <div class="field" style="margin-bottom:14px"><label>Job Title <span class="req">*</span></label><input name="title" required /></div>
+          <div class="field" style="margin-bottom:14px"><label>Department</label>
+            <select name="department"><option>IT</option><option>HR</option><option>Finance</option><option>Marketing</option><option>Sales</option></select>
+          </div>
+          <div class="form-actions" style="border-top:none">
+            <button type="button" class="btn btn-outline" onclick="closeJobModal()">Cancel</button>
+            <button type="submit" class="btn btn-accent">Post Job</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/recruitment.js"></script>
+</body>
+</html>

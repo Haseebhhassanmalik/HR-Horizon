@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Performance · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="performance">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="toolbar">
+          <div class="spacer"></div>
+          <button class="btn btn-accent" id="new-review-btn">+ New Review Cycle</button>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Appraisal History</h3><span class="card-meta">Self assessment vs. manager rating (out of 5)</span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Employee</th><th>Period</th><th>Goals</th><th>Self Rating</th><th>Manager Rating</th><th>Status</th></tr></thead>
+              <tbody id="reviews-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="review-modal">
+    <div class="modal">
+      <div class="modal-header"><h3>New Review Cycle</h3><button class="modal-close" onclick="closeReviewModal()">&times;</button></div>
+      <div class="modal-body">
+        <form id="review-form">
+          <div class="field" style="margin-bottom:14px"><label>Employee <span class="req">*</span></label><select name="employeeId" id="review-employee" required></select></div>
+          <div class="field" style="margin-bottom:14px"><label>Review Period</label><input name="period" placeholder="e.g. H2 2026" required /></div>
+          <div class="field" style="margin-bottom:14px"><label>Goals / KPIs</label><textarea name="goals" rows="3"></textarea></div>
+          <div class="form-grid" style="margin-bottom:14px">
+            <div class="field"><label>Self Rating (1-5)</label><input type="number" name="selfRating" min="1" max="5" value="3" /></div>
+            <div class="field"><label>Manager Rating (1-5)</label><input type="number" name="managerRating" min="1" max="5" value="3" /></div>
+          </div>
+          <div class="form-actions" style="border-top:none">
+            <button type="button" class="btn btn-outline" onclick="closeReviewModal()">Cancel</button>
+            <button type="submit" class="btn btn-accent">Save Review</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/performance.js"></script>
+</body>
+</html>

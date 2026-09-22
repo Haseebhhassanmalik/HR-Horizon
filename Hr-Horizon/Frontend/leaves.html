@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leave Management · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="leaves">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="apply">Apply Leave</button>
+          <button class="tab-btn" data-tab="dashboard">Leave Dashboard</button>
+          <button class="tab-btn" data-tab="requests">Leave Requests</button>
+          <button class="tab-btn" data-tab="history">Leave History</button>
+        </div>
+
+        <div class="tab-panel active" data-panel="apply">
+          <div class="card" style="max-width:640px">
+            <form id="leave-form">
+              <div class="form-grid">
+                <div class="field"><label>Employee <span class="req">*</span></label><select name="employeeId" id="leave-employee" required></select></div>
+                <div class="field"><label>Leave Type</label>
+                  <select name="type">
+                    <option>Annual Leave</option><option>Sick Leave</option><option>Casual Leave</option>
+                    <option>Emergency Leave</option><option>Hajj/Umrah Leave</option>
+                  </select>
+                </div>
+                <div class="field"><label>Start Date <span class="req">*</span></label><input type="date" name="startDate" required /></div>
+                <div class="field"><label>End Date <span class="req">*</span></label><input type="date" name="endDate" required /></div>
+              </div>
+              <div class="field" style="margin-top:16px"><label>Reason</label><textarea name="reason" rows="3"></textarea></div>
+              <div class="form-actions" style="justify-content:flex-start; border-top:none">
+                <button type="submit" class="btn btn-accent">Submit Request</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="dashboard">
+          <div class="toolbar">
+            <select id="balance-employee"></select>
+          </div>
+          <div class="kpi-grid" id="balance-grid"></div>
+          <div class="card">
+            <div class="card-header"><h3>Leave Calendar View</h3><span class="card-meta" id="cal-month-label"></span></div>
+            <div id="leave-calendar"></div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="requests">
+          <div class="toolbar">
+            <select id="requests-status-filter">
+              <option value="Pending">Pending</option>
+              <option value="">All</option>
+              <option value="Approved">Approved</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Employee</th><th>Type</th><th>Dates</th><th>Reason</th><th>Status</th><th></th></tr></thead>
+                <tbody id="requests-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="history">
+          <div class="toolbar">
+            <span class="spacer"></span>
+            <button class="btn btn-outline" id="export-leave-csv">Export to CSV</button>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Employee</th><th>Type</th><th>Dates</th><th>Applied On</th><th>Status</th></tr></thead>
+                <tbody id="history-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/leaves.js"></script>
+</body>
+</html>

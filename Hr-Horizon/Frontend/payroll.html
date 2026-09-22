@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Payroll · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="payroll">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="toolbar">
+          <input type="month" id="payroll-month" />
+          <button class="btn btn-outline" id="preview-btn">Preview</button>
+          <button class="btn btn-accent" id="generate-btn">Generate Payroll Run</button>
+          <div class="spacer"></div>
+          <span class="kpi-label" id="payroll-total"></span>
+        </div>
+
+        <div class="card">
+          <div class="card-header"><h3>Salary Structure & Pay Slips</h3><span class="card-meta" id="payroll-status"></span></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Employee</th><th>Department</th><th>Basic</th><th>Allowances</th><th>Gross</th><th>Tax</th><th>Net Salary</th></tr></thead>
+              <tbody id="payroll-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <div class="card-header"><h3>Salary Reports</h3><span class="card-meta">Department-wise breakdown for the selected run</span></div>
+          <canvas id="chart-payroll-dept" height="220"></canvas>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/payroll.js"></script>
+</body>
+</html>

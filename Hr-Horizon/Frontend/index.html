@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="dashboard">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="kpi-grid" id="kpi-grid"></div>
+
+        <div class="quick-actions">
+          <a href="add-employee.html" class="btn btn-accent">+ Add New Employee</a>
+          <a href="attendance.html" class="btn btn-outline">Check Today's Attendance</a>
+          <a href="leaves.html" class="btn btn-outline">Apply for Leave</a>
+        </div>
+
+        <div class="charts-grid">
+          <div class="card">
+            <div class="card-header"><h3>Department-wise Employee Count</h3></div>
+            <canvas id="chart-dept" height="220"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Gender Distribution</h3></div>
+            <canvas id="chart-gender" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="charts-grid">
+          <div class="card">
+            <div class="card-header"><h3>Monthly Salary Trend</h3><span class="card-meta">Last 6 months</span></div>
+            <canvas id="chart-salary" height="220"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Employee In/Out Flow</h3><span class="card-meta">Joins vs exits</span></div>
+            <canvas id="chart-flow" height="220"></canvas>
+          </div>
+        </div>
+
+        <div class="charts-grid thirds">
+          <div class="card">
+            <div class="card-header"><h3>Attendance Ratio</h3><span class="card-meta">By department</span></div>
+            <canvas id="chart-attendance" height="200"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Seniority vs Avg. Salary</h3></div>
+            <canvas id="chart-education" height="200"></canvas>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Recent Activity</h3></div>
+            <div id="recent-activity"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+</body>
+</html>

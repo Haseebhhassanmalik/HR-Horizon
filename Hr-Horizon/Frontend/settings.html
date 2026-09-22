@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Panel · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body data-page="settings">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="users">User Management</button>
+          <button class="tab-btn" data-tab="system">System Settings</button>
+          <button class="tab-btn" data-tab="audit">Audit Logs</button>
+        </div>
+
+        <div class="tab-panel active" data-panel="users">
+          <div class="toolbar"><div class="spacer"></div><button class="btn btn-accent" id="new-user-btn">+ Add Admin User</button></div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Username</th><th>Role</th><th>Linked Employee</th></tr></thead>
+                <tbody id="users-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="system">
+          <div class="card" style="max-width:640px">
+            <form id="settings-form">
+              <div class="form-grid">
+                <div class="field"><label>Company Name</label><input name="companyName" /></div>
+                <div class="field"><label>Company Address</label><input name="companyAddress" /></div>
+                <div class="field"><label>Work Week Start</label>
+                  <select name="workWeekStart"><option>Monday</option><option>Sunday</option></select>
+                </div>
+                <div class="field"><label>Work Hours</label><input name="workHours" /></div>
+                <div class="field"><label>Tax Slab (%)</label><input type="number" name="taxSlabPercent" min="0" max="100" /></div>
+              </div>
+              <h4 style="margin-top:22px; font-size:13px; text-transform:uppercase; letter-spacing:0.6px; color:var(--accent)">Leave Policy (days/year)</h4>
+              <div class="form-grid" id="leave-policy-fields"></div>
+              <div class="form-actions">
+                <button type="submit" class="btn btn-accent">Save Settings</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="audit">
+          <div class="card">
+            <div class="card-header"><h3>All Changes Record</h3></div>
+            <div id="audit-body"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="user-modal">
+    <div class="modal">
+      <div class="modal-header"><h3>Add Admin User</h3><button class="modal-close" onclick="closeUserModal()">&times;</button></div>
+      <div class="modal-body">
+        <form id="user-form">
+          <div class="field" style="margin-bottom:14px"><label>Username <span class="req">*</span></label><input name="username" required /></div>
+          <div class="field" style="margin-bottom:14px"><label>Password <span class="req">*</span></label><input type="password" name="password" required /></div>
+          <div class="field" style="margin-bottom:14px"><label>Role</label>
+            <select name="role"><option>HR Admin</option><option>Super Admin</option><option>Payroll Officer</option><option>Viewer</option></select>
+          </div>
+          <div class="form-actions" style="border-top:none">
+            <button type="button" class="btn btn-outline" onclick="closeUserModal()">Cancel</button>
+            <button type="submit" class="btn btn-accent">Create User</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Attendance · HR Horizon</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body data-page="attendance">
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar"></aside>
+    <div>
+      <header class="topbar" id="topbar"></header>
+      <main class="main-content" id="main-content">
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="today">Today's Attendance</button>
+          <button class="tab-btn" data-tab="reports">Attendance Reports</button>
+          <button class="tab-btn" data-tab="time">Time Tracking</button>
+        </div>
+
+        <div class="tab-panel active" data-panel="today">
+          <div class="toolbar">
+            <input type="date" id="attendance-date" />
+            <select id="attendance-dept-filter"><option value="">All Departments</option></select>
+            <div class="spacer"></div>
+            <span class="card-meta" id="attendance-summary"></span>
+          </div>
+          <div class="card">
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Employee</th><th>Department</th><th>Status</th><th>Punch In</th><th>Punch Out</th><th>Hours</th></tr></thead>
+                <tbody id="attendance-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="reports">
+          <div class="charts-grid">
+            <div class="card">
+              <div class="card-header"><h3>Monthly Attendance Summary</h3><span class="card-meta">Last 21 working days</span></div>
+              <canvas id="chart-monthly-att" height="220"></canvas>
+            </div>
+            <div class="card">
+              <div class="card-header"><h3>Department-wise Attendance</h3></div>
+              <canvas id="chart-dept-att" height="220"></canvas>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3>Biometric Integration</h3>
+              <span class="pill pill-pending">Not Connected</span>
+            </div>
+            <p style="color:var(--muted); font-size:13.5px; margin:0">Connect a biometric device or attendance API to auto-sync punch data here. This is a placeholder for Phase 2 hardware integration.</p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-panel="time">
+          <div class="card">
+            <div class="card-header"><h3>Punch In / Punch Out</h3></div>
+            <div class="form-grid" style="max-width:600px">
+              <div class="field"><label>Employee</label><select id="tt-employee"></select></div>
+              <div class="field"><label>Punch In</label><input type="time" id="tt-in" /></div>
+              <div class="field"><label>Punch Out</label><input type="time" id="tt-out" /></div>
+            </div>
+            <div class="form-actions" style="justify-content:flex-start; border-top:none; padding-top:14px">
+              <button class="btn btn-accent" id="tt-save">Save Punch Record</button>
+            </div>
+            <div id="tt-result" style="font-size:13px; color:var(--muted)"></div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="assets/js/api.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/attendance.js"></script>
+</body>
+</html>
